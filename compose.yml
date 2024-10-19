@@ -8,3 +8,12 @@ services:
             - ./world:/app/world
             - ./ops.json:/app/ops.json
             - ./server.properties:/app/server.properties
+
+    mumble:
+        container_name: mumble-server
+        image: mumblevoip/mumble-server
+        environment:
+            - MUMBLE_CONFIG_SERVER_PASSWORD=${MUMBLE_CONFIG_SERVER_PASSWORD}
+        ports:
+            - 64738:64738
+            - 64738:64738/udp
